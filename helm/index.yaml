@@ -3,7 +3,7 @@ entries:
   azurelabs:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2023-09-17T12:25:24.727288+02:00"
+    created: "2023-09-17T12:28:30.6437781+02:00"
     dependencies:
     - name: antivirus-app
       repository: ""
@@ -24,7 +24,7 @@ entries:
       repository: https://test-organisation-bridzinppp.github.io/helm/
       version: 0.0.1
     description: A Helm chart for Kubernetes
-    digest: 998c9cea2e370b4d2a20aef991a3ad052b86c885fa005629bff8ed89a8eeb21f
+    digest: 2ff275ef3617fc4d94ae08e7025b0c7b00f89aacf028a958488bf23a10f956a5
     name: azurelabs
     type: application
     urls:
@@ -33,9 +33,9 @@ entries:
   clamav:
   - apiVersion: v2
     appVersion: 0.0.1
-    created: "2023-09-17T12:25:24.7284043+02:00"
+    created: "2023-09-17T12:28:30.6448104+02:00"
     description: A Helm chart for Kubernetes - clamav
-    digest: 312696662bb58b7e12df7084030a357e307db821956cf49d9baaa3a92ef926c4
+    digest: 4764ed2a2ac110b39e31475d75e154399dcabb705ac9ecf9c681bc053ea842a7
     name: clamav
     type: application
     urls:
@@ -44,9 +44,9 @@ entries:
   rabbitmq:
   - apiVersion: v2
     appVersion: 0.0.1
-    created: "2023-09-17T12:25:24.7294639+02:00"
+    created: "2023-09-17T12:28:30.6467758+02:00"
     description: A Helm chart for Kubernetes - rabbitmq
-    digest: be2111f0a45c3d03bdfb2897e849d305d3e4b2d7631f0001d407019f82ec0bd7
+    digest: 492e82996db13f814bd7e60c0b6444f732dc0b6e91ad1718f27b64e86f992c8b
     name: rabbitmq
     type: application
     urls:
@@ -55,12 +55,12 @@ entries:
   resource_templates:
   - apiVersion: v2
     appVersion: 0.0.1
-    created: "2023-09-17T12:25:24.730835+02:00"
+    created: "2023-09-17T12:28:30.6481212+02:00"
     description: A Helm chart for Kubernetes
-    digest: 00e19ddb755b9e2f722ec863be4c3111162fb3a170920e14d32c633549d5544d
+    digest: 150010d1b75f9639c605782e2535a3c39a97ec59c740c7c4d98cf01951544fff
     name: resource_templates
     type: application
     urls:
     - resource_templates-0.0.1.tgz
     version: 0.0.1
-generated: "2023-09-17T12:25:24.7243678+02:00"
+generated: "2023-09-17T12:28:30.6417783+02:00"
