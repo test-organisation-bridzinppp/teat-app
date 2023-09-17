@@ -3,7 +3,7 @@ entries:
   azurelabs:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2023-09-17T12:22:56.7902785+02:00"
+    created: "2023-09-17T12:25:24.727288+02:00"
     dependencies:
     - name: antivirus-app
       repository: ""
@@ -22,9 +22,9 @@ entries:
       version: 0.0.1
     - name: resource_templates
       repository: https://test-organisation-bridzinppp.github.io/helm/
-      version: 0.1.0
+      version: 0.0.1
     description: A Helm chart for Kubernetes
-    digest: 64093407253cf2af2eb1c4b6c66ea31a108cab8fb7bb8352eb48281abb57dbb3
+    digest: 998c9cea2e370b4d2a20aef991a3ad052b86c885fa005629bff8ed89a8eeb21f
     name: azurelabs
     type: application
     urls:
@@ -33,9 +33,9 @@ entries:
   clamav:
   - apiVersion: v2
     appVersion: 0.0.1
-    created: "2023-09-17T12:22:56.7919151+02:00"
+    created: "2023-09-17T12:25:24.7284043+02:00"
     description: A Helm chart for Kubernetes - clamav
-    digest: 4b6004313f74dc4663ba630a6c488a4d6e6974db61388c7ae3e1933cf966364a
+    digest: 312696662bb58b7e12df7084030a357e307db821956cf49d9baaa3a92ef926c4
     name: clamav
     type: application
     urls:
@@ -44,9 +44,9 @@ entries:
   rabbitmq:
   - apiVersion: v2
     appVersion: 0.0.1
-    created: "2023-09-17T12:22:56.7933091+02:00"
+    created: "2023-09-17T12:25:24.7294639+02:00"
     description: A Helm chart for Kubernetes - rabbitmq
-    digest: acad7460897a139db61f4c014d3da9dd8321e1d7b97bf3d11650c3b2b003519b
+    digest: be2111f0a45c3d03bdfb2897e849d305d3e4b2d7631f0001d407019f82ec0bd7
     name: rabbitmq
     type: application
     urls:
@@ -55,12 +55,12 @@ entries:
   resource_templates:
   - apiVersion: v2
     appVersion: 0.0.1
-    created: "2023-09-17T12:22:56.7951216+02:00"
+    created: "2023-09-17T12:25:24.730835+02:00"
     description: A Helm chart for Kubernetes
-    digest: 96a5cac050541e7c00d5867568b455d7f6d1132b9f24b2527fb1339e105867e9
+    digest: 00e19ddb755b9e2f722ec863be4c3111162fb3a170920e14d32c633549d5544d
     name: resource_templates
     type: application
     urls:
     - resource_templates-0.0.1.tgz
     version: 0.0.1
-generated: "2023-09-17T12:22:56.7871968+02:00"
+generated: "2023-09-17T12:25:24.7243678+02:00"
