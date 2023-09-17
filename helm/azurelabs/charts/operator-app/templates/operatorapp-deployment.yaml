@@ -1,0 +1,50 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: operatorapp-deployment
+  labels:
+    app: operatorapp
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: operatorapp
+  template:
+    metadata:
+      labels:
+        app: operatorapp
+    spec:
+      containers:
+        - name: operatorapp
+          image: devappacr1980.azurecr.io/operatorapp:0.0.1
+          volumeMounts:
+          - mountPath: /confirmed
+            name: confirmed-pv-storage
+          ports:
+            - containerPort: 80
+          env:
+          - name: ASPNETCORE__URLS
+            valueFrom:
+              configMapKeyRef:
+                configMapKeyRef:
+                name: operatorapp-configmap
+                key: ASPNETCORE__URLS
+          - name: RunOn__Enviroment
+            valueFrom:
+              configMapKeyRef:
+                name: operatorapp-configmap
+                key: RunOn__Environment
+          - name: OnPremPublishEventPublisherConfiguration__ConnectionString
+            valueFrom:
+              configMapKeyRef:
+                name: operatorapp-configmap
+                key: OnPremPublishEventPublisherConfiguration__ConnectionString
+          - name: OnPremPhotosToPublishStorageServiceConfiguration__StoragePath
+            valueFrom:
+              configMapKeyRef:
+                name: operatorapp-configmap
+                key: OnPremPhotosToPublishStorageServiceConfiguration__StoragePath
+      volumes:
+      - name: confirmed-pv-storage
+        persistentVolumeClaim:
+          claimName: confirmed-claim      

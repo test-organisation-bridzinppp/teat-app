@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: antivirusapp-configmap
+  labels:
+    app: antivirusapp
+data:
+  RunOn__Environment: "OnPrem"
+  OnPremAntivirusStorageServiceConfiguration__StoragePath: "/unconfirmed"
+  AntivirusConfig__Port: "3310"
+  AntivirusConfig__Url: "clamav-service"

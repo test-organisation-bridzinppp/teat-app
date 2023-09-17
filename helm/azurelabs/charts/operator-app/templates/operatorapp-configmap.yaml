@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: operatorapp-configmap
+  labels:
+    app: operatorapp
+data:
+  ASPNETCORE__URLS: "http://localhost/operatorapp"
+  RunOn__Environment: "OnPrem"
+  OnPremPhotosToPublishStorageServiceConfiguration__StoragePath: "/confirmed"  
+  OnPremPublishEventPublisherConfiguration__ConnectionString: "rabbitmq-service"

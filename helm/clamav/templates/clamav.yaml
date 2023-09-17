@@ -1,0 +1,27 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: clamav
+  labels:
+    app: clamav
+spec:
+  containers:
+  - name: clamav
+    image: devappacr1980.azurecr.io/clamav:latest
+    ports:
+    - containerPort: 3310    
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: clamav-service
+spec:
+  selector:
+    app: clamav
+  ports:
+  - name: clamav-port
+    protocol: TCP
+    port: 3310
+    targetPort: 3310  
+
+

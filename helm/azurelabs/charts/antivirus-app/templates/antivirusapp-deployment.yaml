@@ -1,0 +1,49 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: antivirusapp-deployment
+  labels:
+    app: antivirusapp
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: antivirusapp
+  template:
+    metadata:
+      labels:
+        app: antivirusapp
+    spec:
+      containers:
+        - name: antivirusapp
+          image: devappacr1980.azurecr.io/antivirusapp:0.0.1
+          volumeMounts:
+          - mountPath: /unconfirmed
+            name: unconfirmed-pv-storage          
+          ports:
+            - containerPort: 80
+          env:
+          - name: RunOn__Environment
+            valueFrom:
+              configMapKeyRef:
+                name: antivirusapp-configmap
+                key: RunOn__Environment
+          - name: OnPremAntivirusStorageServiceConfiguration__StoragePath
+            valueFrom:
+              configMapKeyRef:
+                name: antivirusapp-configmap
+                key: OnPremAntivirusStorageServiceConfiguration__StoragePath
+          - name: AntivirusConfig__Port
+            valueFrom:
+              configMapKeyRef:
+                name: antivirusapp-configmap
+                key: AntivirusConfig__Port
+          - name: AntivirusConfig__Url
+            valueFrom:
+              configMapKeyRef:
+                name: antivirusapp-configmap
+                key: AntivirusConfig__Url
+      volumes:
+      - name: unconfirmed-pv-storage
+        persistentVolumeClaim:
+          claimName: unconfirmed-claim

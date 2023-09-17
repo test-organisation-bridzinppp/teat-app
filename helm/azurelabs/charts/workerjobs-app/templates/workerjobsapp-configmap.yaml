@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: workerjobsapp-configmap
+  labels:
+    app: workerjobsapp
+data:
+  RunOn__Environment: "OnPrem"
+  WorkerJobsOnPremAdaptersConfiguration__UnconfirmedFilePath: "/unconfirmed"
+  ConnectionStrings__HangfireConnection: "Server=tcp:devapp-azuresql.database.windows.net,1433;Initial Catalog=dev-app-azuresql-db;Persist Security Info=False;User ID=piotr;Password=80486Dx26680486Dx266!;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"

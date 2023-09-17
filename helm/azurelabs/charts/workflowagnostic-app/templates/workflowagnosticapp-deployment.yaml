@@ -1,0 +1,82 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: workflowagnosticapp-deployment
+  labels:
+    app: workflowagnosticapp
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: workflowagnosticapp
+  template:
+    metadata:
+      labels:
+        app: workflowagnosticapp
+    spec:
+      containers:
+        - name: workflowagnosticapp
+          image: devappacr1980.azurecr.io/workflowapp:0.0.1
+          volumeMounts:
+          - mountPath: /unconfirmed
+            name: unconfirmed-pv-storage
+          - mountPath: /confirmed
+            name: confirmed-pv-storage
+          - mountPath: /published
+            name: published-pv-storage              
+          env:
+          - name: RunOn__Environment
+            valueFrom:
+              configMapKeyRef:
+                name: workflowagnosticapp-configmap
+                key: RunOn__Environment
+          - name: OnPremServiceBusConfiguration__ConnectionString
+            valueFrom:
+              configMapKeyRef:
+                name: workflowagnosticapp-configmap
+                key: OnPremServiceBusConfiguration__ConnectionString
+          - name: OnPremStorageServiceConfiguration__UnconfirmedStoragePath
+            valueFrom:
+              configMapKeyRef:
+                name: workflowagnosticapp-configmap
+                key: OnPremStorageServiceConfiguration__UnconfirmedStoragePath
+          - name: OnPremStorageServiceConfiguration__ConfirmedStoragePath
+            valueFrom:
+              configMapKeyRef:
+                name: workflowagnosticapp-configmap
+                key: OnPremStorageServiceConfiguration__ConfirmedStoragePath
+          - name: OnPremStorageServiceConfiguration__PublishedStoragePath
+            valueFrom:
+              configMapKeyRef:
+                name: workflowagnosticapp-configmap
+                key: OnPremStorageServiceConfiguration__PublishedStoragePath
+          - name: SendGridConfiguration__ApiKey
+            valueFrom:
+              configMapKeyRef:
+                name: workflowagnosticapp-configmap
+                key: SendGridConfiguration__ApiKey
+          - name: SendGridConfiguration__OperatorEmail
+            valueFrom:
+              configMapKeyRef:
+                name: workflowagnosticapp-configmap
+                key: SendGridConfiguration__OperatorEmail
+          - name: AntivirusService__Url
+            valueFrom:
+              configMapKeyRef:
+                name: workflowagnosticapp-configmap
+                key: AntivirusService__Url
+          - name: AntivirusCheckEnabled
+            valueFrom:
+              configMapKeyRef:
+                name: workflowagnosticapp-configmap
+                key: AntivirusCheckEnabled
+      volumes:
+      - name: unconfirmed-pv-storage
+        persistentVolumeClaim:
+          claimName: unconfirmed-claim
+      - name: confirmed-pv-storage
+        persistentVolumeClaim:
+          claimName: confirmed-claim
+      - name: published-pv-storage
+        persistentVolumeClaim:
+          claimName: published-claim

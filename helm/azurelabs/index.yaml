@@ -1,0 +1,44 @@
+apiVersion: v1
+entries:
+  azurelabs:
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2023-09-17T13:48:55.4732255+02:00"
+    dependencies:
+    - name: antivirus-app
+      repository: ""
+      version: 0.0.1
+    - name: client-app
+      repository: ""
+      version: 0.0.1
+    - name: operator-app
+      repository: ""
+      version: 0.0.1
+    - name: workerjobs-app
+      repository: ""
+      version: 0.0.1
+    - name: workflowagnostic-app
+      repository: ""
+      version: 0.0.1
+    - name: resource_templates
+      repository: https://test-organisation-bridzinppp.github.io/helm/
+      version: 0.0.1
+    description: A Helm chart for Kubernetes
+    digest: 756e91bae6d543e92b0400c7ab540f926595a27968058eca7018e5e239599d43
+    name: azurelabs
+    type: application
+    urls:
+    - azurelabs-0.1.0.tgz
+    version: 0.1.0
+  resource_templates:
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2023-09-17T13:48:55.4811009+02:00"
+    description: A Helm chart for Kubernetes
+    digest: d43e2e0d8372dd643b855c82688a3d513d0ec7707a1cc05152859f9c4c61aa2c
+    name: resource_templates
+    type: application
+    urls:
+    - charts/resource_templates-0.1.0.tgz
+    version: 0.1.0
+generated: "2023-09-17T13:48:55.4672965+02:00"

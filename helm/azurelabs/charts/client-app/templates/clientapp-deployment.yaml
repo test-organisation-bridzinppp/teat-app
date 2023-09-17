@@ -1,0 +1,55 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: clientapp-deployment
+  labels:
+    app: clientapp
+spec:
+  replicas: 4
+  selector:
+    matchLabels:
+      app: clientapp
+  template:
+    metadata:
+      labels:
+        app: clientapp
+    spec:
+      containers:
+        - name: clientapp
+          image: devappacr1980.azurecr.io/clientapp:0.0.1
+          imagePullPolicy: Always
+          volumeMounts:
+          - mountPath: /unconfirmed
+            name: unconfirmed-pv-storage
+          - mountPath: /published
+            name: published-pv-storage    
+          ports:
+            - containerPort: 80
+          env:
+          - name: RunOn__Environment
+            valueFrom:
+              configMapKeyRef:
+                name: clientapp-configmap
+                key: RunOn__Environment
+          - name: OnPremClientAppPhotoStorageConfiguration__UnconfirmedStoragePath
+            valueFrom:
+              configMapKeyRef:
+                name: clientapp-configmap
+                key: OnPremClientAppPhotoStorageConfiguration__UnconfirmedStoragePath
+          - name: OnPremClientAppPhotoStorageConfiguration__PublishedStoragePath
+            valueFrom:
+              configMapKeyRef:
+                name: clientapp-configmap
+                key: OnPremClientAppPhotoStorageConfiguration__PublishedStoragePath
+          - name: OnPremEventPublisherConfiguration__ConnectionString
+            valueFrom:
+              configMapKeyRef:
+                name: clientapp-configmap
+                key: OnPremEventPublisherConfiguration__ConnectionString
+      volumes:
+      - name: unconfirmed-pv-storage
+        persistentVolumeClaim:
+          claimName: unconfirmed-claim
+      - name: published-pv-storage
+        persistentVolumeClaim:
+          claimName: published-claim

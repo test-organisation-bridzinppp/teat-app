@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: clientapp-configmap
+  labels:
+    app: clientapp
+data:  
+  RunOn__Environment: "OnPrem"
+  OnPremClientAppPhotoStorageConfiguration__UnconfirmedStoragePath: "/unconfirmed"
+  OnPremClientAppPhotoStorageConfiguration__PublishedStoragePath: "/published"
+  OnPremEventPublisherConfiguration__ConnectionString: "rabbitmq-service"
+  

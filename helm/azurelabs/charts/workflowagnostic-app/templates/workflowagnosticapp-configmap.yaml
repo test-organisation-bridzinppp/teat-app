@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: workflowagnosticapp-configmap
+  labels:
+    app: workflowagnosticapp
+data:
+  RunOn__Environment: "OnPrem"
+  OnPremServiceBusConfiguration__ConnectionString: "rabbitmq-service"
+  OnPremStorageServiceConfiguration__UnconfirmedStoragePath: "/unconfirmed"
+  OnPremStorageServiceConfiguration__ConfirmedStoragePath: "/confirmed"
+  OnPremStorageServiceConfiguration__PublishedStoragePath: "/published"
+  SendGridConfiguration__ApiKey: "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"
+  SendGridConfiguration__OperatorEmail: "piotr.brodzinski@luxmed.pl"
+  AntivirusService__Url: "http://antivirusapp-service"
+  AntivirusCheckEnabled: "true"

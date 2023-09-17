@@ -1,0 +1,35 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: unconfirmed-claim
+spec:
+  storageClassName: azurefile
+  accessModes:
+    - ReadWriteMany
+  resources:
+    requests:
+      storage: 3Gi
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: confirmed-claim
+spec:
+  storageClassName: azurefile
+  accessModes:
+    - ReadWriteMany
+  resources:
+    requests:
+      storage: 3Gi
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: published-claim
+spec:
+  storageClassName: azurefile
+  accessModes:
+    - ReadWriteMany
+  resources:
+    requests:
+      storage: 3Gi

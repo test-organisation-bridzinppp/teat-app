@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: workerjobsapp-deployment
+  labels:
+    app: workerjobsapp
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: workerjobsapp
+  template:
+    metadata:
+      labels:
+        app: workerjobsapp
+    spec:
+      containers:
+        - name: workerjobsapp
+          image: devappacr1980.azurecr.io/workerjobsapp:0.0.1
+          volumeMounts:
+          - mountPath: /unconfirmed
+            name: unconfirmed-pv-storage
+          ports:
+            - containerPort: 80
+          env:
+          - name: RunOn__Environment
+            valueFrom:
+              configMapKeyRef:
+                name: workerjobsapp-configmap
+                key: RunOn__Environment
+          - name: WorkerJobsOnPremAdaptersConfiguration__UnconfirmedFilePath
+            valueFrom:
+              configMapKeyRef:
+                name: workerjobsapp-configmap
+                key: WorkerJobsOnPremAdaptersConfiguration__UnconfirmedFilePath          
+      volumes:
+      - name: unconfirmed-pv-storage
+        persistentVolumeClaim:
+          claimName: unconfirmed-claim      
