@@ -1,1 +1,55 @@
-
+apiVersion: v1
+entries:
+  azurelabs:
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2023-09-17T12:19:43.8056642+02:00"
+    dependencies:
+    - name: antivirus-app
+      repository: ""
+      version: 0.0.1
+    - name: client-app
+      repository: ""
+      version: 0.0.1
+    - name: operator-app
+      repository: ""
+      version: 0.0.1
+    - name: workerjobs-app
+      repository: ""
+      version: 0.0.1
+    - name: workflowagnostic-app
+      repository: ""
+      version: 0.0.1
+    - name: resource_templates
+      repository: https://test-organisation-bridzinppp.github.io/helm/
+      version: 0.1.0
+    description: A Helm chart for Kubernetes
+    digest: 6b4a7464109a6745d6089ed890af8a0596296c5a6199e75301c087f6abd33d85
+    name: azurelabs
+    type: application
+    urls:
+    - azurelabs-0.1.0.tgz
+    version: 0.1.0
+  clamav:
+  - apiVersion: v2
+    appVersion: 0.0.1
+    created: "2023-09-17T12:19:43.8066644+02:00"
+    description: A Helm chart for Kubernetes - clamav
+    digest: d7d2669aa7a72be2f179086511d7904a2ddbb46b9f0a2bf8f7b36a133265aca9
+    name: clamav
+    type: application
+    urls:
+    - clamav-0.0.1.tgz
+    version: 0.0.1
+  rabbitmq:
+  - apiVersion: v2
+    appVersion: 0.0.1
+    created: "2023-09-17T12:19:43.8076638+02:00"
+    description: A Helm chart for Kubernetes - rabbitmq
+    digest: c26961b851176401add0bd978590f41eca3966da7b5f009547b9f0d92e0088cd
+    name: rabbitmq
+    type: application
+    urls:
+    - rabbitmq-0.0.1.tgz
+    version: 0.0.1
+generated: "2023-09-17T12:19:43.8019847+02:00"
