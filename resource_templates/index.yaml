@@ -1,0 +1,14 @@
+apiVersion: v1
+entries:
+  resource_templates:
+  - apiVersion: v2
+    appVersion: 0.0.1
+    created: "2023-09-17T13:52:30.7767647+02:00"
+    description: A Helm chart for Kubernetes
+    digest: 02d129ae8cf91b159edeafb2c0884e0817872fd9a3bae612efd2b124645e2d2b
+    name: resource_templates
+    type: application
+    urls:
+    - resource_templates-0.0.1.tgz
+    version: 0.0.1
+generated: "2023-09-17T13:52:30.7732276+02:00"
